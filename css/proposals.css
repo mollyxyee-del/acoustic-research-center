@@ -117,6 +117,25 @@
   flex-shrink: 0;
 }
 
+@media (min-width: 1000px) {
+  .proposals-grid {
+    gap: 2.75rem;
+    margin-bottom: 5rem;
+  }
+
+  .proposal-card__frame {
+    min-height: 340px;
+    --card-pad-x: 2.25rem;
+    --card-pad-y: 2rem;
+    gap: 1.35rem;
+  }
+
+  .proposal-card__meta {
+    --card-meta-pad-y: 1.15rem;
+    font-size: 1.05rem;
+  }
+}
+
 @media (max-width: 720px) {
   #proposals-root.proposals-grid,
   .proposals-grid {
