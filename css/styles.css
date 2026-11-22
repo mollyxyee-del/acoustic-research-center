@@ -408,7 +408,7 @@ a {
   font-size: clamp(2.1rem, 3.8vw, 2.7rem);
   font-family: var(--font-display);
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.08;
   letter-spacing: 0.01em;
 }
 
@@ -550,4 +550,29 @@ a {
     max-width: 100%;
   }
 
+  /* Tall hero (~60% viewport); oversized sketch can bleed past the photo */
+  .page-main.home-main .hero-frame {
+    width: 100%;
+    max-width: 100%;
+    height: 60svh;
+    min-height: 60svh;
+    max-height: 60svh;
+    aspect-ratio: auto;
+    margin-bottom: clamp(1.25rem, 4vw, 2rem);
+  }
+
+  .page-main.home-main .hero-composite__bg {
+    object-fit: fill;
+    object-position: center;
+  }
+
+  .page-main.home-main .hero-composite__sketch {
+    width: 115%;
+    height: 115%;
+    transform: translate(-50%, calc(-50% - 10%)) scale(1.85);
+  }
+
+  .home-intro {
+    line-height: 1;
+  }
 }
