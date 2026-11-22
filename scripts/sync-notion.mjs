@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import {
   fetchAboutData,
   fetchLibraryData,
+  fetchProposalsData,
   fetchSiteTextData,
 } from "./notion-fetch.mjs";
 
@@ -12,6 +13,7 @@ const ROOT = join(__dirname, "..");
 const LIBRARY_OUTPUT = join(ROOT, "public/library.json");
 const ABOUT_OUTPUT = join(ROOT, "public/about.json");
 const SITE_TEXT_OUTPUT = join(ROOT, "public/site-text.json");
+const PROPOSALS_OUTPUT = join(ROOT, "public/proposals.json");
 
 function loadDotEnv() {
   const envPath = join(ROOT, ".env");
@@ -64,6 +66,22 @@ async function syncSiteText() {
   console.log(`Wrote site copy (${siteText.source.pageCount} rows)`);
 }
 
+async function syncProposals() {
+  if (!process.env.NOTION_TOKEN) {
+    if (existsSync(PROPOSALS_OUTPUT)) {
+      console.warn("NOTION_TOKEN not set — keeping existing public/proposals.json");
+      return;
+    }
+    throw new Error(
+      "NOTION_TOKEN is required to generate proposals.json (or commit public/proposals.json)"
+    );
+  }
+
+  const proposals = await fetchProposalsData();
+  writeFileSync(PROPOSALS_OUTPUT, `${JSON.stringify(proposals, null, 2)}\n`, "utf8");
+  console.log(`Wrote ${proposals.proposals.length} proposals (${proposals.source.pageCount} rows)`);
+}
+
 async function syncAbout() {
   if (!process.env.NOTION_TOKEN) {
     if (existsSync(ABOUT_OUTPUT)) {
@@ -84,6 +102,7 @@ async function main() {
   let libraryError;
   let aboutError;
   let siteTextError;
+  let proposalsError;
 
   try {
     await syncLibrary();
@@ -115,9 +134,20 @@ async function main() {
     }
   }
 
+  try {
+    await syncProposals();
+  } catch (error) {
+    proposalsError = error;
+    if (existsSync(PROPOSALS_OUTPUT)) {
+      console.error(error);
+      console.warn("Proposals sync failed — keeping existing public/proposals.json");
+    }
+  }
+
   if (libraryError && !existsSync(LIBRARY_OUTPUT)) throw libraryError;
   if (aboutError && !existsSync(ABOUT_OUTPUT)) throw aboutError;
   if (siteTextError && !existsSync(SITE_TEXT_OUTPUT)) throw siteTextError;
+  if (proposalsError && !existsSync(PROPOSALS_OUTPUT)) throw proposalsError;
 }
 
 main().catch((error) => {

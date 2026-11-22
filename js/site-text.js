@@ -17,9 +17,10 @@ function applyMultiline(element, text) {
 }
 
 async function initSiteText() {
-  const homeIntro = document.querySelector(".home-intro");
+  const homeIntro = document.querySelector(".home-intro:not(.proposals-intro)");
+  const proposalsIntro = document.querySelector(".proposals-intro");
   const aboutCharter = document.querySelector(".about-intro");
-  if (!homeIntro && !aboutCharter) return;
+  if (!homeIntro && !proposalsIntro && !aboutCharter) return;
 
   try {
     const data = await loadNotionData("site-text", "/site-text.json");
@@ -27,6 +28,9 @@ async function initSiteText() {
 
     if (homeIntro && fields.homeIntro) {
       applyMultiline(homeIntro, fields.homeIntro);
+    }
+    if (proposalsIntro && fields.proposalsIntro) {
+      applyMultiline(proposalsIntro, fields.proposalsIntro);
     }
     if (aboutCharter && fields.aboutCharter) {
       applyMultiline(aboutCharter, fields.aboutCharter);

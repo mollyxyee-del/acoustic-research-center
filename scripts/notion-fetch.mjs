@@ -16,6 +16,10 @@ import {
   DEFAULT_SITE_TEXT_DATA_SOURCE_ID,
   buildSiteTextFromPages,
 } from "./notion-site-text.mjs";
+import {
+  DEFAULT_PROPOSALS_DATA_SOURCE_ID,
+  buildProposalsFromPages,
+} from "./notion-proposals.mjs";
 
 export function notionEnv(env = process.env) {
   return {
@@ -28,6 +32,8 @@ export function notionEnv(env = process.env) {
       DEFAULT_RESEARCH_TYPES_DATA_SOURCE_ID,
     siteTextDataSourceId:
       env.NOTION_SITE_TEXT_DATA_SOURCE_ID || DEFAULT_SITE_TEXT_DATA_SOURCE_ID,
+    proposalsDataSourceId:
+      env.NOTION_PROPOSALS_DATA_SOURCE_ID || DEFAULT_PROPOSALS_DATA_SOURCE_ID,
   };
 }
 
@@ -75,4 +81,18 @@ export async function fetchSiteTextData(env = process.env) {
     live: true,
   };
   return siteText;
+}
+
+export async function fetchProposalsData(env = process.env) {
+  const { token, proposalsDataSourceId } = notionEnv(env);
+  if (!token) throw new Error("NOTION_TOKEN is not set");
+
+  const pages = await queryDataSource(proposalsDataSourceId, token);
+  const proposals = buildProposalsFromPages(pages);
+  proposals.source = {
+    dataSourceId: proposalsDataSourceId,
+    pageCount: pages.length,
+    live: true,
+  };
+  return proposals;
 }

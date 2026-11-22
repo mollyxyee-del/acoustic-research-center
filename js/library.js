@@ -60,4 +60,6 @@ async function initLibrary() {
   }
 }
 
-initLibrary();
+if (document.getElementById("library-root")) {
+  initLibrary();
+}

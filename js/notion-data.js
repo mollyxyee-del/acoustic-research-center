@@ -10,7 +10,18 @@ export async function loadNotionData(name, fallbackPath) {
 
   try {
     const liveResponse = await fetch(liveUrl, { cache: "no-store" });
-    if (liveResponse.ok) return liveResponse.json();
+    const contentType = liveResponse.headers.get("content-type") ?? "";
+    if (
+      liveResponse.ok &&
+      (contentType.includes("application/json") || contentType.includes("+json"))
+    ) {
+      try {
+        const data = await liveResponse.json();
+        return data;
+      } catch (parseError) {
+        console.warn(`Live Notion response was not JSON (${name}):`, parseError);
+      }
+    }
   } catch (error) {
     console.warn(`Live Notion fetch failed (${name}):`, error);
   }

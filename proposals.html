@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proposals — Acoustic Research Center</title>
+    <script type="module" src="/js/proposals-page.js"></script>
+  </head>
+  <body>
+    <div class="page-overlay" aria-hidden="true">
+      <img src="/assets/circles.png" alt="" width="1200" height="1200" />
+    </div>
+    <div class="site-canvas">
+      <header class="site-header site-header--stacked">
+        <a class="site-title" href="index.html">
+          <img src="/assets/title.png" alt="Acoustic Research Center" width="1400" height="120" />
+        </a>
+        <nav class="site-nav site-nav--primary" aria-label="Primary">
+          <a href="index.html">Library</a>
+          <a class="is-active" href="proposals.html">Proposals</a>
+          <a href="about.html">About</a>
+        </nav>
+      </header>
+      <main class="page-main home-main proposals-main">
+        <div class="hero-frame" aria-label="Proposals illustration">
+          <div class="hero-composite">
+            <img
+              class="hero-composite__bg"
+              src="/assets/proposals-image.png"
+              alt=""
+              width="1400"
+              height="900"
+            />
+            <img
+              class="hero-composite__sketch"
+              src="/assets/white-sketch.png"
+              alt=""
+              width="1400"
+              height="1400"
+            />
+          </div>
+        </div>
+
+        <div class="home-intro proposals-intro">
+          Our team’s proposal of projects we want to study
+        </div>
+
+        <div
+          id="proposals-root"
+          class="proposals-grid"
+          aria-busy="true"
+          aria-live="polite"
+        ></div>
+      </main>
+    </div>
+  </body>
+</html>

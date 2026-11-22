@@ -228,21 +228,6 @@ a {
   text-underline-offset: 3px;
 }
 
-.support-block {
-  max-width: 40rem;
-}
-
-.support-block .section-heading {
-  margin-top: 0;
-}
-
-.support-block p {
-  margin: 0;
-  font-size: 1rem;
-  font-family: var(--font-mono);
-  font-weight: 400;
-}
-
 .about-intro {
   max-width: 52rem;
   margin-bottom: 3rem;
@@ -323,16 +308,18 @@ a {
 .hero-composite {
   position: relative;
   width: 100%;
+  aspect-ratio: 1310 / 867;
   line-height: 0;
   overflow: visible;
 }
 
 .hero-composite__bg {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 0;
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: contain;
   object-position: left center;
   pointer-events: none;
@@ -440,4 +427,5 @@ a {
   .hero-frame {
     max-width: 100%;
   }
+
 }

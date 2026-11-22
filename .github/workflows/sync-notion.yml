@@ -35,10 +35,11 @@ jobs:
           NOTION_ABOUT_DATA_SOURCE_ID: 41bae2a3-d440-80da-94da-000bf34672a7
           NOTION_RESEARCH_TYPES_DATA_SOURCE_ID: 420ae2a3-d440-8052-b43a-000b533c5819
           NOTION_SITE_TEXT_DATA_SOURCE_ID: 420ae2a3-d440-8000-ae00-000b6bd471a7
+          NOTION_PROPOSALS_DATA_SOURCE_ID: 420ae2a3-d440-80d0-9d75-000be574daaa
 
       - name: Commit updated JSON if changed
         run: |
-          git add public/library.json public/about.json public/site-text.json
+          git add public/library.json public/about.json public/site-text.json public/proposals.json
           if git diff --staged --quiet; then
             echo "No Notion changes to commit."
             exit 0

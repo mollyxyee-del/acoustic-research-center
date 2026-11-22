@@ -37,6 +37,7 @@ export function parseSiteTextPage(page) {
 function fieldKeyForLocation(location) {
   const value = location.toLowerCase();
   if (value.includes("homepage") && value.includes("hero")) return "homeIntro";
+  if (value.includes("proposals") && value.includes("hero")) return "proposalsIntro";
   if (value.includes("about") && value.includes("charter")) return "aboutCharter";
   return null;
 }
@@ -44,6 +45,7 @@ function fieldKeyForLocation(location) {
 export function buildSiteTextFromPages(pages) {
   const fields = {
     homeIntro: "",
+    proposalsIntro: "",
     aboutCharter: "",
   };
 

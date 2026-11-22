@@ -1,0 +1,39 @@
+{
+  "updatedAt": "2026-11-22T18:40:20.226Z",
+  "proposals": [
+    {
+      "title": "Ancient structures and correlating sand cymatics",
+      "paragraphs": [],
+      "author": "emize",
+      "timeline": ""
+    },
+    {
+      "title": "Infrasonic pollution in NYC",
+      "paragraphs": [],
+      "author": "emize",
+      "timeline": ""
+    },
+    {
+      "title": "Decentralize Sound System Classes",
+      "paragraphs": [
+        "A 4 session class taught by emize"
+      ],
+      "author": "emize",
+      "timeline": ""
+    },
+    {
+      "title": "Sound System Archival",
+      "paragraphs": [
+        "To interview and document the DIY sound system builders around the world serving local musicians",
+        "Producing archives, channels, tradeoffs in sound system design and build out"
+      ],
+      "author": "emize",
+      "timeline": "6 months in 2027"
+    }
+  ],
+  "source": {
+    "dataSourceId": "420ae2a3-d440-80d0-9d75-000be574daaa",
+    "pageCount": 4,
+    "live": true
+  }
+}

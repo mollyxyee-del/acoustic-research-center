@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 import {
   fetchAboutData,
   fetchLibraryData,
+  fetchProposalsData,
   fetchSiteTextData,
 } from "./scripts/notion-fetch.mjs";
 
@@ -27,6 +28,7 @@ export function notionLiveApiPlugin() {
   let libraryBusy = null;
   let aboutBusy = null;
   let siteTextBusy = null;
+  let proposalsBusy = null;
 
   return {
     name: "notion-live-api",
@@ -38,7 +40,8 @@ export function notionLiveApiPlugin() {
         if (
           path !== "/api/notion/library" &&
           path !== "/api/notion/about" &&
-          path !== "/api/notion/site-text"
+          path !== "/api/notion/site-text" &&
+          path !== "/api/notion/proposals"
         ) {
           next();
           return;
@@ -61,9 +64,13 @@ export function notionLiveApiPlugin() {
                 ? await (aboutBusy ||= fetchAboutData().finally(() => {
                     aboutBusy = null;
                   }))
-                : await (siteTextBusy ||= fetchSiteTextData().finally(() => {
-                    siteTextBusy = null;
-                  }));
+                : path === "/api/notion/proposals"
+                  ? await (proposalsBusy ||= fetchProposalsData().finally(() => {
+                      proposalsBusy = null;
+                    }))
+                  : await (siteTextBusy ||= fetchSiteTextData().finally(() => {
+                      siteTextBusy = null;
+                    }));
 
           res.statusCode = 200;
           res.setHeader("Content-Type", "application/json");

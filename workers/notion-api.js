@@ -5,6 +5,7 @@
 import {
   fetchAboutData,
   fetchLibraryData,
+  fetchProposalsData,
   fetchSiteTextData,
 } from "../scripts/notion-fetch.mjs";
 
@@ -31,6 +32,8 @@ export default {
         body = await fetchAboutData(env);
       } else if (path.endsWith("/site-text")) {
         body = await fetchSiteTextData(env);
+      } else if (path.endsWith("/proposals")) {
+        body = await fetchProposalsData(env);
       } else {
         return new Response("Not found", { status: 404, headers: CORS });
       }

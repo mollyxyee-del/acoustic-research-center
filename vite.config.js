@@ -10,6 +10,7 @@ export default defineConfig({
         main: resolve(__dirname, "index.html"),
         research: resolve(__dirname, "research.html"),
         support: resolve(__dirname, "support.html"),
+        proposals: resolve(__dirname, "proposals.html"),
         about: resolve(__dirname, "about.html"),
       },
     },
