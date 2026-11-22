@@ -1,0 +1,79 @@
+{
+  "updatedAt": "2026-11-22T20:08:32.329Z",
+  "sections": [
+    {
+      "id": "sound-system-archival",
+      "type": "Sound system archival",
+      "blurb": "Is there any comprehensive compilation of the histories, builders, and movements behind sound system culture?",
+      "items": []
+    },
+    {
+      "id": "sonic-militarization",
+      "type": "Sonic Militarization",
+      "blurb": "Tracing how acoustic technologies have been developed, deployed, and normalized through conflict and state power.",
+      "items": [
+        {
+          "title": "Development of sound through oil and military - Klipsch’s role",
+          "href": "#"
+        },
+        {
+          "title": "High frequency speech jammer",
+          "href": "#"
+        },
+        {
+          "title": "LRAD systems",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "id": "sound-laws",
+      "type": "Sound laws",
+      "blurb": "Investigating noise ordinances, suppression, and what gets amplified in public life — and who decides.",
+      "items": []
+    },
+    {
+      "id": "sound-system-research",
+      "type": "Sound system research",
+      "blurb": "Hands-on study of hi-fi infrastructure, club systems, and bespoke electronics built for artists and spaces.",
+      "items": []
+    },
+    {
+      "id": "ancient-architectural-knowledge",
+      "type": "Ancient Architectural Knowledge",
+      "blurb": "There are many pieces of evidence that point to ancient civilizations being much more collectively sonically advanced than today's age.",
+      "items": [
+        {
+          "title": "Ancient Mayan Temples",
+          "href": "#"
+        },
+        {
+          "title": "Borobudur Temples",
+          "href": "#"
+        },
+        {
+          "title": "Hypogeum",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "id": "sonic-healing",
+      "type": "Sonic Healing",
+      "blurb": "Studying how frequencies and vibration interact with human physiology, ritual, and collective care practices.",
+      "items": [
+        {
+          "title": "110 frequency",
+          "href": "#"
+        }
+      ]
+    }
+  ],
+  "source": {
+    "articlesDataSourceId": "41bae2a3-d440-8088-8aa4-000b7bd3f460",
+    "typesDataSourceId": "420ae2a3-d440-8052-b43a-000b533c5819",
+    "articleCount": 11,
+    "typeCount": 6,
+    "live": true
+  }
+}
