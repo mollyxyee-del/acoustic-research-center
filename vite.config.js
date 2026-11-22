@@ -1,7 +1,9 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
+import { notionLiveApiPlugin } from "./vite-notion-live.mjs";
 
 export default defineConfig({
+  plugins: [notionLiveApiPlugin()],
   build: {
     rollupOptions: {
       input: {
