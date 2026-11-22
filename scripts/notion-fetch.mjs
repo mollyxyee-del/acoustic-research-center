@@ -41,12 +41,18 @@ export async function fetchLibraryData(env = process.env) {
   const { token, libraryDataSourceId, typesDataSourceId } = notionEnv(env);
   if (!token) throw new Error("NOTION_TOKEN is not set");
 
+  const typePagesPromise = queryDataSource(typesDataSourceId, token, {
+    sorts: [{ property: "order", direction: "ascending" }],
+  }).catch(() => queryDataSource(typesDataSourceId, token));
+
   const [articlePages, typePages] = await Promise.all([
     queryDataSource(libraryDataSourceId, token),
-    queryDataSource(typesDataSourceId, token).catch(() => []),
+    typePagesPromise.catch(() => []),
   ]);
 
-  const typeCatalog = buildResearchTypesCatalog([...typePages].reverse());
+  // Section order comes from the sections table: number column "order" when present,
+  // otherwise the data source query order (no reverse).
+  const typeCatalog = buildResearchTypesCatalog(typePages);
   const resolveType = (name) => resolveCanonicalType(name, typeCatalog);
   const library = buildLibraryFromPages(articlePages, { typeCatalog, resolveType });
   library.source = {

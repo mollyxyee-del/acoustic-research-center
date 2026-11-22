@@ -1,24 +1,11 @@
 {
-  "updatedAt": "2026-11-22T18:40:19.424Z",
+  "updatedAt": "2026-11-22T19:03:58.011Z",
   "sections": [
     {
-      "id": "ancient-architectural-knowledge",
-      "type": "Ancient Architectural Knowledge",
-      "blurb": "There are many pieces of evidence that point to ancient civilizations being much more collectively sonically advanced than today's age.",
-      "items": [
-        {
-          "title": "Ancient Mayan Temples",
-          "href": "#"
-        },
-        {
-          "title": "Borobudur Temples",
-          "href": "#"
-        },
-        {
-          "title": "Hypogeum",
-          "href": "#"
-        }
-      ]
+      "id": "sound-system-archival",
+      "type": "Sound system archival",
+      "blurb": "Is there any comprehensive compilation of the histories, builders, and movements behind sound system culture?",
+      "items": []
     },
     {
       "id": "sonic-militarization",
@@ -40,23 +27,6 @@
       ]
     },
     {
-      "id": "sonic-healing",
-      "type": "Sonic Healing",
-      "blurb": "Studying how frequencies and vibration interact with human physiology, ritual, and collective care practices.",
-      "items": [
-        {
-          "title": "110 frequency",
-          "href": "#"
-        }
-      ]
-    },
-    {
-      "id": "sound-system-archival",
-      "type": "Sound system archival",
-      "blurb": "Is there any comprehensive compilation of the histories, builders, and movements behind sound system culture?",
-      "items": []
-    },
-    {
       "id": "sound-laws",
       "type": "Sound laws",
       "blurb": "Investigating noise ordinances, suppression, and what gets amplified in public life — and who decides.",
@@ -67,6 +37,36 @@
       "type": "Sound system research",
       "blurb": "Hands-on study of hi-fi infrastructure, club systems, and bespoke electronics built for artists and spaces.",
       "items": []
+    },
+    {
+      "id": "ancient-architectural-knowledge",
+      "type": "Ancient Architectural Knowledge",
+      "blurb": "There are many pieces of evidence that point to ancient civilizations being much more collectively sonically advanced than today's age.",
+      "items": [
+        {
+          "title": "Ancient Mayan Temples",
+          "href": "#"
+        },
+        {
+          "title": "Borobudur Temples",
+          "href": "#"
+        },
+        {
+          "title": "Hypogeum",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "id": "sonic-healing",
+      "type": "Sonic Healing",
+      "blurb": "Studying how frequencies and vibration interact with human physiology, ritual, and collective care practices.",
+      "items": [
+        {
+          "title": "110 frequency",
+          "href": "#"
+        }
+      ]
     }
   ],
   "source": {

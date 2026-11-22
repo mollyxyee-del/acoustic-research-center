@@ -70,6 +70,9 @@ a {
 .site-canvas {
   position: relative;
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100%;
   max-width: min(var(--page-max-width), 100%);
   margin-inline: auto;
@@ -145,7 +148,25 @@ a {
 
 .page-main {
   position: relative;
+  flex: 1;
   padding: 0 0 4rem;
+}
+
+.site-footer {
+  flex-shrink: 0;
+  padding: 200px 0 clamp(1.25rem, 3vw, 2rem);
+}
+
+.site-footer p {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: clamp(0.75rem, 1.05vw, 0.85rem);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
+  color: var(--text);
+  opacity: 0.72;
 }
 
 .page-main:not(.home-main) {
@@ -338,6 +359,47 @@ a {
   mix-blend-mode: screen;
   transform: translate(-50%, calc(-50% - 10%)) scale(1.38);
   transform-origin: center center;
+}
+
+/* Library home — tall hero; intro only peeks above the fold */
+.page-main.home-main:not(.proposals-main) {
+  --home-chrome: clamp(9rem, 23svh, 11rem);
+  --home-intro-peek: clamp(3rem, 7svh, 4rem);
+  --home-viewport-reserve: calc(var(--home-chrome) + var(--home-intro-peek));
+}
+
+.page-main.home-main:not(.proposals-main) .hero-frame {
+  position: relative;
+  width: min(100%, calc((100svh - var(--home-viewport-reserve)) * 1310 / 867));
+  max-height: calc(100svh - var(--home-viewport-reserve));
+  aspect-ratio: 1310 / 867;
+  margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+  overflow: hidden;
+}
+
+.page-main.home-main:not(.proposals-main) .hero-composite {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+}
+
+.page-main.home-main:not(.proposals-main) .hero-composite__bg {
+  object-fit: cover;
+  object-position: left center;
+}
+
+.page-main.home-main:not(.proposals-main) .home-intro {
+  position: relative;
+  z-index: 2;
+}
+
+@media (min-width: 900px) and (max-width: 1120px) {
+  .page-main.home-main:not(.proposals-main) {
+    --home-chrome: clamp(10.5rem, 27svh, 13rem);
+    --home-intro-peek: clamp(5.25rem, 13vh, 6.5rem);
+  }
 }
 
 .home-intro {

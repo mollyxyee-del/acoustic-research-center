@@ -1,10 +1,16 @@
 export const NOTION_API_VERSION = "2025-09-03";
 
-export async function queryDataSource(dataSourceId, token) {
+export async function queryDataSource(dataSourceId, token, { sorts } = {}) {
   const pages = [];
   let cursor;
 
   do {
+    const body = {
+      page_size: 100,
+      start_cursor: cursor,
+    };
+    if (sorts?.length) body.sorts = sorts;
+
     const response = await fetch(
       `https://api.notion.com/v1/data_sources/${dataSourceId}/query`,
       {
@@ -14,10 +20,7 @@ export async function queryDataSource(dataSourceId, token) {
           "Notion-Version": NOTION_API_VERSION,
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          page_size: 100,
-          start_cursor: cursor,
-        }),
+        body: JSON.stringify(body),
       }
     );
 

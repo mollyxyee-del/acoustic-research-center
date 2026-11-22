@@ -12,6 +12,12 @@ function plainFromRichText(prop) {
   return prop.rich_text.map((part) => part.plain_text).join("").trim();
 }
 
+function orderFromProperty(prop) {
+  if (!prop || prop.type !== "number") return null;
+  const value = prop.number;
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
 export function parseResearchTypePage(page) {
   const props = page.properties ?? {};
   const typeProp =
@@ -30,19 +36,37 @@ export function parseResearchTypePage(page) {
   );
   const blurb = richTextToParagraphs(descriptionProp).join("\n\n");
 
-  return { typeName, blurb };
+  const orderProp = findProperty(
+    props,
+    ["order", "Order", "#", "rank", "Rank", "position", "Position"],
+    "number"
+  );
+  const order = orderFromProperty(orderProp);
+
+  return { typeName, blurb, order };
 }
 
 export function buildResearchTypesCatalog(pages) {
   const catalog = [];
 
-  for (const page of pages) {
-    const { typeName, blurb } = parseResearchTypePage(page);
+  for (let index = 0; index < pages.length; index += 1) {
+    const page = pages[index];
+    const { typeName, blurb, order } = parseResearchTypePage(page);
     if (!typeName) continue;
-    catalog.push({ type: typeName, blurb });
+    catalog.push({ type: typeName, blurb, order, queryIndex: index });
   }
 
-  return catalog;
+  const hasExplicitOrder = catalog.some((entry) => entry.order != null);
+  if (hasExplicitOrder) {
+    catalog.sort((a, b) => {
+      const aOrder = a.order ?? Number.POSITIVE_INFINITY;
+      const bOrder = b.order ?? Number.POSITIVE_INFINITY;
+      if (aOrder !== bOrder) return aOrder - bOrder;
+      return a.queryIndex - b.queryIndex;
+    });
+  }
+
+  return catalog.map(({ type, blurb }) => ({ type, blurb }));
 }
 
 export function resolveCanonicalType(typeName, catalog) {
