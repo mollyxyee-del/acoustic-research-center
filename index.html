@@ -3,30 +3,148 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Acoustic Research Center</title>
-    <script type="module" src="/js/home.js"></script>
+    <title>Library — Acoustic Research Center</title>
+    <script type="module" src="/js/main.js"></script>
   </head>
   <body>
-    <header class="site-header">
-      <a class="site-logo" href="index.html">Acoustic Research Center</a>
-      <nav class="site-nav" aria-label="Primary">
-        <a href="research.html">All Research</a>
-        <a href="support.html">Support</a>
+    <div class="page-overlay" aria-hidden="true">
+      <img src="/assets/circles.png" alt="" width="1200" height="1200" />
+    </div>
+    <header class="site-header site-header--stacked">
+      <a class="site-title" href="index.html">
+        <img src="/assets/title.png" alt="Acoustic Research Center" width="1400" height="120" />
+      </a>
+      <nav class="site-nav site-nav--primary" aria-label="Primary">
+        <a class="is-active" href="index.html">Library</a>
+        <a href="support.html">Writing</a>
         <a href="about.html">About</a>
       </nav>
     </header>
     <main class="page-main home-main">
-      <div class="illustration-stage" aria-label="Interactive sound system diagram">
-        <img
-          id="hero-illustration"
-          class="hero-illustration"
-          src="/assets/base.PNG"
-          alt="Technical illustration of an interconnected sound system"
-          width="1200"
-          height="1200"
-        />
-        <div class="topic-labels"></div>
+      <div class="hero-frame" aria-label="Sound research illustration">
+        <div class="hero-composite">
+          <img
+            class="hero-composite__bg"
+            src="/assets/home-image.png"
+            alt=""
+            width="1400"
+            height="900"
+          />
+          <img
+            class="hero-composite__sketch"
+            src="/assets/white-sketch.png"
+            alt=""
+            width="1400"
+            height="1400"
+          />
+        </div>
       </div>
+
+      <p class="home-intro">
+        An independent public archive of sound research around sound in conflict
+        and state power, the legal apparatuses around sound, like noise laws and
+        suppression, and DIY sound system building, through education and public
+        archives.
+      </p>
+
+      <section class="research-section" id="ancient-architectural">
+        <div>
+          <h2 class="section-heading">Ancient Architectural</h2>
+          <p>
+            There are many pieces of evidence that point to ancient civilizations
+            being much more collectively sonically advanced than today's age.
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">A link to the Hypogeum</a></li>
+          <li><a href="#">Ancient Mayan temples</a></li>
+          <li><a href="#">Iranian temple noise diffusion panels</a></li>
+          <li><a href="#">Another example</a></li>
+        </ul>
+      </section>
+
+      <section class="research-section" id="sonic-militarization">
+        <div>
+          <h2 class="section-heading">Sonic Militarization</h2>
+          <p>
+            Tracing how acoustic technologies have been developed, deployed, and
+            normalized through conflict and state power.
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">LRAD and crowd-control systems</a></li>
+          <li><a href="#">Sonic weapons archive</a></li>
+          <li><a href="#">Military frequency research notes</a></li>
+          <li><a href="#">Another example</a></li>
+        </ul>
+      </section>
+
+      <section class="research-section" id="sonic-healing">
+        <div>
+          <h2 class="section-heading">Sonic Healing</h2>
+          <p>
+            Studying how frequencies and vibration interact with human physiology,
+            ritual, and collective care practices.
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">Resonance and nervous system</a></li>
+          <li><a href="#">Sound bath field notes</a></li>
+          <li><a href="#">Herbalism and frequency</a></li>
+          <li><a href="#">Another example</a></li>
+        </ul>
+      </section>
+
+      <section class="research-section" id="sound-system-archival">
+        <div>
+          <h2 class="section-heading">Sound System Archival</h2>
+          <p>
+            Is there any comprehensive compilation of the histories, builders, and
+            movements behind sound system culture?
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">List of sound systems we wanna study</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Examples</a></li>
+          <li><a href="#">Examples</a></li>
+        </ul>
+      </section>
+
+      <section class="research-section" id="sound-laws">
+        <div>
+          <h2 class="section-heading">Sound Laws &amp; Amplification</h2>
+          <p>
+            Investigating noise ordinances, suppression, and what gets amplified in
+            public life — and who decides.
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">NYC noise code primer</a></li>
+          <li><a href="#">Permitting and policing sound</a></li>
+          <li><a href="#">Community amplification case studies</a></li>
+          <li><a href="#">Another example</a></li>
+        </ul>
+      </section>
+
+      <section class="research-section" id="sound-system-research">
+        <div>
+          <h2 class="section-heading">Sound System Research</h2>
+          <p>
+            Hands-on study of hi-fi infrastructure, club systems, and bespoke
+            electronics built for artists and spaces.
+          </p>
+        </div>
+        <ul class="research-links">
+          <li><a href="#">System build logs</a></li>
+          <li><a href="#">Acoustical tapestries</a></li>
+          <li><a href="#">The time machine — notes</a></li>
+          <li><a href="#">Another example</a></li>
+        </ul>
+      </section>
     </main>
   </body>
 </html>
