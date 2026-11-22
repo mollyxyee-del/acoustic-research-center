@@ -306,6 +306,9 @@ a {
 
 .page-main.home-main {
   padding-bottom: 4rem;
+  --home-chrome: clamp(9rem, 23svh, 11rem);
+  --home-intro-peek: clamp(3rem, 7svh, 4rem);
+  --home-viewport-reserve: calc(var(--home-chrome) + var(--home-intro-peek));
 }
 
 .page-main.home-main > .library-root > .research-section:first-of-type,
@@ -361,14 +364,8 @@ a {
   transform-origin: center center;
 }
 
-/* Library home — tall hero; intro only peeks above the fold */
-.page-main.home-main:not(.proposals-main) {
-  --home-chrome: clamp(9rem, 23svh, 11rem);
-  --home-intro-peek: clamp(3rem, 7svh, 4rem);
-  --home-viewport-reserve: calc(var(--home-chrome) + var(--home-intro-peek));
-}
-
-.page-main.home-main:not(.proposals-main) .hero-frame {
+/* Library + Proposals — same hero size; intro only peeks above the fold */
+.page-main.home-main .hero-frame {
   position: relative;
   width: min(100%, calc((100svh - var(--home-viewport-reserve)) * 1310 / 867));
   max-height: calc(100svh - var(--home-viewport-reserve));
@@ -377,7 +374,7 @@ a {
   overflow: hidden;
 }
 
-.page-main.home-main:not(.proposals-main) .hero-composite {
+.page-main.home-main .hero-composite {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -385,18 +382,18 @@ a {
   aspect-ratio: auto;
 }
 
-.page-main.home-main:not(.proposals-main) .hero-composite__bg {
+.page-main.home-main .hero-composite__bg {
   object-fit: cover;
   object-position: left center;
 }
 
-.page-main.home-main:not(.proposals-main) .home-intro {
+.page-main.home-main .home-intro {
   position: relative;
   z-index: 2;
 }
 
 @media (min-width: 900px) and (max-width: 1120px) {
-  .page-main.home-main:not(.proposals-main) {
+  .page-main.home-main {
     --home-chrome: clamp(10.5rem, 27svh, 13rem);
     --home-intro-peek: clamp(5.25rem, 13vh, 6.5rem);
   }
